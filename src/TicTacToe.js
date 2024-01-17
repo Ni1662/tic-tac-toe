@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./TicTacToe.css";
 
 const TicTacToe = () => {
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const initialBoard = Array(9).fill(null);
+
+  const [board, setBoard] = useState(initialBoard);
   const [xIsNext, setXIsNext] = useState(true);
 
   const calculateWinner = () => {
@@ -38,6 +40,11 @@ const TicTacToe = () => {
     setXIsNext(!xIsNext);
   };
 
+  const handleReset = () => {
+    setBoard(initialBoard);
+    setXIsNext(true);
+  };
+
   const renderSquare = (index) => {
     return (
       <button className="square" onClick={() => handleClick(index)}>
@@ -51,6 +58,9 @@ const TicTacToe = () => {
 
   if (winner) {
     status = `Winner: ${winner}`;
+  } else if (board.every((square) => square !== null)) {
+    // Check for a tie
+    status = "It's a tie!";
   } else {
     status = `Next player: ${xIsNext ? "X" : "O"}`;
   }
@@ -76,6 +86,9 @@ const TicTacToe = () => {
           {renderSquare(8)}
         </div>
       </div>
+      {(winner || board.every((square) => square !== null)) && (
+        <button className="reset-button" onClick={handleReset}>Reset Game</button>
+      )}
     </div>
   );
 };
