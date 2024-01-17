@@ -1,6 +1,6 @@
 /* TicTacToe.css */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #282c34;
   color: #fff;
   display: flex;
@@ -52,23 +52,6 @@ h1 {
   font-size: 1.5rem;
   margin: 20px 0;
 }
-
-/* .reset-button {
-  font-size: 1rem;
-  background-color: #61dafb;
-  border: none;
-  color: #fff;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.reset-button:hover {
-  background-color: #0078d4;
-} */
-
-/* Add this to your TicTacToe.css file */
 
 .reset-button {
   margin-top: 30px;
